@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: chatbootai
+  description: ChatBootAI API schema
+  version: 1.0.0
+components:
+  schemas:
+    chatRequest:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              content:
+                type: string
+              role:
+                type: string
+                enum:
+                  - system
+                  - user
+                  - assistant
+                  - function
+            required:
+              - content
+              - role
+            additionalProperties: false
+        stream:
+          type: boolean
+        context:
+          type: object
+          additionalProperties:
+            type: string
+        session_state:
+          type: object
+          additionalProperties:
+            type: string
+      required:
+        - messages
+    message:
+      type: object
+      properties:
+        content:
+          type: string
+        role:
+          type: string
+          enum:
+            - system
+            - user
+            - assistant
+            - function
+        context:
+          type: object
+          additionalProperties: true
+        session_state:
+          type: object
+          additionalProperties: true
+      required:
+        - content
+        - role
+      additionalProperties: false
+    approachResponse:
+      type: object
+      properties:
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: number
+              message:
+                $ref: "#/components/schemas/message"
+            required:
+              - index
+              - message
+            additionalProperties: false
+        object:
+          type: string
+      required:
+        - choices
+        - object
+    httpError:
+      type: object
+      properties:
+        statusCode:
+          type: number
+        code:
+          type: string
+        error:
+          type: string
+        message:
+          type: string
+paths:
+  /chat:
+    post:
+      tags:
+        - chat
+      description: Chat with the bot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/chatRequest"
+      responses:
+        "400":
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/httpError"
+        "500":
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/httpError"
+
