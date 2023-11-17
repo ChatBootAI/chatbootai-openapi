@@ -7,8 +7,14 @@
     <name>ChatBootAI :: OpenAPI :: Java</name>
     <version>0.0.1-SNAPSHOT</version>
 
+    <modules>
+        <module>jaxrs-api</module>
+        <module>jaxrs-model</module>
+    </modules>
+
     <properties>
-        <openapi-generator-version>7.1.0</openapi-generator-version>
+        <openapi-generator-plugin-version>7.1.0</openapi-generator-plugin-version>
+        <formatter-plugin-version>2.23.0</formatter-plugin-version>
     </properties>
 
     <build>
@@ -16,7 +22,7 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>${openapi-generator-version}</version>
+                <version>${openapi-generator-plugin-version}</version>
                 <executions>
                     <execution>
                         <id>jaxrs-api</id>
@@ -60,7 +66,7 @@
                             <modelPackage>ai.chatboot.model</modelPackage>
                             <packageName>ai.chatboot</packageName>
                             <groupId>ai.chatboot.openapi.java</groupId>
-                            <artifactId>jaxrs-api</artifactId>
+                            <artifactId>jaxrs-model</artifactId>
                             <artifactVersion>0.0.1-SNAPSHOT</artifactVersion>
                             <skipOperationExample>true</skipOperationExample>
                             <configOptions>
@@ -69,6 +75,14 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>${formatter-plugin-version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>
