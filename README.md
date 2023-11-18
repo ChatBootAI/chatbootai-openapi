@@ -26,6 +26,8 @@ The directory structure is as follows:
 
 The ChatBootAI OpenAPI Contract in located under the `openapi.yml` file.
 
+You can also visualize the OpenAPI Contract using the [OpenAPI online editor](https://editor.swagger.io)
+
 # Manually Generating the model and APIs from the ChatBootAI OpenAPI Contract
 
 [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) allows generation of API client libraries (SDK generation), server stubs, and documentation automatically given an OpenAPI Spec.
@@ -65,5 +67,5 @@ openapi-generator generate -i openapi.yml -g jaxrs-spec -o ./java/java-api --api
 * [OpenAPI Initiative](https://www.openapis.org/) and the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 * [The OpenAPI API Reference for the Chat endpoint](https://platform.openai.com/docs/api-reference/chat)
 * [Chat Backend Protocol](https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md)
-* [Swagger CodeGen](https://swagger.io/tools/swagger-codegen/)
 * [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)
+* [OpenAPI online editor](https://editor.swagger.io)
