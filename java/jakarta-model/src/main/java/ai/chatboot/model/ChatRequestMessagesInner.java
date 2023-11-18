@@ -1,8 +1,6 @@
 package ai.chatboot.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import java.util.HashMap;
-import java.util.Map;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,9 +10,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 
-@JsonTypeName("message")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-11-18T18:40:39.798198+01:00[Europe/Paris]")
-public class Message   {
+@JsonTypeName("chatRequest_messages_inner")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-11-18T18:40:39.953789+01:00[Europe/Paris]")
+public class ChatRequestMessagesInner   {
   private String content;
   public enum RoleEnum {
 
@@ -64,12 +62,10 @@ public class Message   {
 }
 
   private RoleEnum role;
-  private Map<String, Object> context = new HashMap<>();
-  private Map<String, Object> sessionState = new HashMap<>();
 
   /**
    **/
-  public Message content(String content) {
+  public ChatRequestMessagesInner content(String content) {
     this.content = content;
     return this;
   }
@@ -87,7 +83,7 @@ public class Message   {
 
   /**
    **/
-  public Message role(RoleEnum role) {
+  public ChatRequestMessagesInner role(RoleEnum role) {
     this.role = role;
     return this;
   }
@@ -103,74 +99,6 @@ public class Message   {
     this.role = role;
   }
 
-  /**
-   **/
-  public Message context(Map<String, Object> context) {
-    this.context = context;
-    return this;
-  }
-
-  
-  @JsonProperty("context")
-  public Map<String, Object> getContext() {
-    return context;
-  }
-
-  @JsonProperty("context")
-  public void setContext(Map<String, Object> context) {
-    this.context = context;
-  }
-
-  public Message putContextItem(String key, Object contextItem) {
-    if (this.context == null) {
-      this.context = new HashMap<>();
-    }
-
-    this.context.put(key, contextItem);
-    return this;
-  }
-
-  public Message removeContextItem(Object contextItem) {
-    if (contextItem != null && this.context != null) {
-      this.context.remove(contextItem);
-    }
-
-    return this;
-  }
-  /**
-   **/
-  public Message sessionState(Map<String, Object> sessionState) {
-    this.sessionState = sessionState;
-    return this;
-  }
-
-  
-  @JsonProperty("session_state")
-  public Map<String, Object> getSessionState() {
-    return sessionState;
-  }
-
-  @JsonProperty("session_state")
-  public void setSessionState(Map<String, Object> sessionState) {
-    this.sessionState = sessionState;
-  }
-
-  public Message putSessionStateItem(String key, Object sessionStateItem) {
-    if (this.sessionState == null) {
-      this.sessionState = new HashMap<>();
-    }
-
-    this.sessionState.put(key, sessionStateItem);
-    return this;
-  }
-
-  public Message removeSessionStateItem(Object sessionStateItem) {
-    if (sessionStateItem != null && this.sessionState != null) {
-      this.sessionState.remove(sessionStateItem);
-    }
-
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -180,27 +108,23 @@ public class Message   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Message message = (Message) o;
-    return Objects.equals(this.content, message.content) &&
-        Objects.equals(this.role, message.role) &&
-        Objects.equals(this.context, message.context) &&
-        Objects.equals(this.sessionState, message.sessionState);
+    ChatRequestMessagesInner chatRequestMessagesInner = (ChatRequestMessagesInner) o;
+    return Objects.equals(this.content, chatRequestMessagesInner.content) &&
+        Objects.equals(this.role, chatRequestMessagesInner.role);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, role, context, sessionState);
+    return Objects.hash(content, role);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Message {\n");
+    sb.append("class ChatRequestMessagesInner {\n");
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    context: ").append(toIndentedString(context)).append("\n");
-    sb.append("    sessionState: ").append(toIndentedString(sessionState)).append("\n");
     sb.append("}");
     return sb.toString();
   }
