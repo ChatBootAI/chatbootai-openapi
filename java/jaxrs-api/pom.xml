@@ -57,6 +57,11 @@
     </build>
     <dependencies>
         <dependency>
+            <groupId>ai.chatboot.openapi</groupId>
+            <artifactId>jaxrs-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
             <version>${jakarta.ws.rs-version}</version>

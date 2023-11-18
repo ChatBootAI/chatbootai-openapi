@@ -20,7 +20,7 @@
         <openapi-generator-plugin-apiPackage>ai.chatboot.api</openapi-generator-plugin-apiPackage>
         <openapi-generator-plugin-modelPackage>ai.chatboot.model</openapi-generator-plugin-modelPackage>
         <openapi-generator-plugin-packageName>ai.chatboot</openapi-generator-plugin-packageName>
-        <openapi-generator-plugin-sourceFolder>src/java/main</openapi-generator-plugin-sourceFolder>
+        <openapi-generator-plugin-sourceFolder>src/main/java</openapi-generator-plugin-sourceFolder>
         <openapi-generator-plugin-skipOperationExample>true</openapi-generator-plugin-skipOperationExample>
         <openapi-generator-plugin-dateLibrary>java8</openapi-generator-plugin-dateLibrary>
         <openapi-generator-plugin-generatePom>false</openapi-generator-plugin-generatePom>
