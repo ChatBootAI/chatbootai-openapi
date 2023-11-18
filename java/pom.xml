@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ai.chatboot.openapi</groupId>
-    <artifactId>java</artifactId>
+    <groupId>ai.chatboot</groupId>
+    <artifactId>openapi</artifactId>
     <packaging>pom</packaging>
-    <name>ChatBootAI :: OpenAPI :: Java</name>
+    <name>ChatBootAI :: OpenAPI</name>
     <version>0.0.1-SNAPSHOT</version>
 
     <!--    <modules>-->
@@ -20,14 +20,13 @@
         <openapi-generator-plugin-apiPackage>ai.chatboot.api</openapi-generator-plugin-apiPackage>
         <openapi-generator-plugin-modelPackage>ai.chatboot.model</openapi-generator-plugin-modelPackage>
         <openapi-generator-plugin-packageName>ai.chatboot</openapi-generator-plugin-packageName>
-        <openapi-generator-plugin-groupId>ai.chatboot.openapi.java</openapi-generator-plugin-groupId>
-        <openapi-generator-plugin-artifactVersion>${project.version}</openapi-generator-plugin-artifactVersion>
         <openapi-generator-plugin-sourceFolder>src/java/main</openapi-generator-plugin-sourceFolder>
         <openapi-generator-plugin-skipOperationExample>true</openapi-generator-plugin-skipOperationExample>
         <openapi-generator-plugin-dateLibrary>java8</openapi-generator-plugin-dateLibrary>
         <openapi-generator-plugin-generatePom>false</openapi-generator-plugin-generatePom>
         <openapi-generator-plugin-configHelp>false</openapi-generator-plugin-configHelp>
         <openapi-generator-plugin-useSwaggerAnnotations>false</openapi-generator-plugin-useSwaggerAnnotations>
+        <openapi-generator-plugin-useBeanValidation>false</openapi-generator-plugin-useBeanValidation>
         <formatter-plugin-version>2.23.0</formatter-plugin-version>
     </properties>
 
@@ -47,13 +46,11 @@
 
                         <configuration>
                             <generatorName>jaxrs-spec</generatorName>
-                            <output>jaxrs-api</output>
+                            <output>jaxrs-api2</output>
                             <generateApis>true</generateApis>
                             <generateModels>false</generateModels>
                             <artifactId>jaxrs-api</artifactId>
 
-                            <groupId>${openapi-generator-plugin-groupId}</groupId>
-                            <artifactVersion>${openapi-generator-plugin-artifactVersion}</artifactVersion>
                             <verbose>${openapi-generator-plugin-verbose}</verbose>
                             <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
                             <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
@@ -65,7 +62,8 @@
                             <configOptions>
                                 <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
                                 <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                <useJakartaEe>false</useJakartaEe>
+                                <useJakartaEe>true</useJakartaEe>
+                                <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
                                 <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
                                 <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
                             </configOptions>
@@ -84,8 +82,6 @@
                             <generateModels>true</generateModels>
                             <artifactId>jaxrs-model</artifactId>
 
-                            <groupId>${openapi-generator-plugin-groupId}</groupId>
-                            <artifactVersion>${openapi-generator-plugin-artifactVersion}</artifactVersion>
                             <verbose>${openapi-generator-plugin-verbose}</verbose>
                             <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
                             <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
@@ -97,7 +93,8 @@
                             <configOptions>
                                 <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
                                 <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                <useJakartaEe>false</useJakartaEe>
+                                <useJakartaEe>true</useJakartaEe>
+                                <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
                                 <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
                                 <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
                             </configOptions>
