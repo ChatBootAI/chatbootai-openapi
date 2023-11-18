@@ -7,10 +7,10 @@
     <name>ChatBootAI :: OpenAPI</name>
     <version>0.0.1-SNAPSHOT</version>
 
-    <!--    <modules>-->
-    <!--        <module>jaxrs-api</module>-->
-    <!--        <module>jaxrs-model</module>-->
-    <!--    </modules>-->
+    <modules>
+        <module>jaxrs-api</module>
+        <module>jaxrs-model</module>
+    </modules>
 
     <properties>
         <openapi-generator-plugin-version>7.1.0</openapi-generator-plugin-version>
@@ -30,86 +30,91 @@
         <formatter-plugin-version>2.23.0</formatter-plugin-version>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>${openapi-generator-plugin-version}</version>
-                <executions>
-                    <execution>
-                        <!-- JAXRS-API -->
-                        <id>jaxrs-api</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
+    <profiles>
+        <profile>
+            <id>generate-code</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openapitools</groupId>
+                        <artifactId>openapi-generator-maven-plugin</artifactId>
+                        <version>${openapi-generator-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <!-- JAXRS-API -->
+                                <id>jaxrs-api</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
 
+                                <configuration>
+                                    <generatorName>jaxrs-spec</generatorName>
+                                    <output>jaxrs-api</output>
+                                    <generateApis>true</generateApis>
+                                    <generateModels>false</generateModels>
+                                    <artifactId>jaxrs-api</artifactId>
+
+                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
+                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <configOptions>
+                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
+                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
+                                        <useJakartaEe>false</useJakartaEe>
+                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
+                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
+                                        <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <!-- JAXRS-MODEL -->
+                                <id>jaxrs-model</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <generatorName>jaxrs-spec</generatorName>
+                                    <output>jaxrs-model</output>
+                                    <generateApis>false</generateApis>
+                                    <generateModels>true</generateModels>
+                                    <artifactId>jaxrs-model</artifactId>
+
+                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
+                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <configOptions>
+                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
+                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
+                                        <useJakartaEe>false</useJakartaEe>
+                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
+                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
+                                        <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>net.revelc.code.formatter</groupId>
+                        <artifactId>formatter-maven-plugin</artifactId>
+                        <version>${formatter-plugin-version}</version>
                         <configuration>
-                            <generatorName>jaxrs-spec</generatorName>
-                            <output>jaxrs-api2</output>
-                            <generateApis>true</generateApis>
-                            <generateModels>false</generateModels>
-                            <artifactId>jaxrs-api</artifactId>
-
-                            <verbose>${openapi-generator-plugin-verbose}</verbose>
-                            <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
-                            <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
-                            <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
-                            <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
-                            <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
-                            <packageName>${openapi-generator-plugin-packageName}</packageName>
-                            <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
-                            <configOptions>
-                                <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
-                                <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                <useJakartaEe>true</useJakartaEe>
-                                <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
-                                <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
-                                <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
-                            </configOptions>
+                            <encoding>UTF-8</encoding>
                         </configuration>
-                    </execution>
-                    <execution>
-                        <!-- JAXRS-MODEL -->
-                        <id>jaxrs-model</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <generatorName>jaxrs-spec</generatorName>
-                            <output>jaxrs-model</output>
-                            <generateApis>false</generateApis>
-                            <generateModels>true</generateModels>
-                            <artifactId>jaxrs-model</artifactId>
-
-                            <verbose>${openapi-generator-plugin-verbose}</verbose>
-                            <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
-                            <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
-                            <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
-                            <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
-                            <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
-                            <packageName>${openapi-generator-plugin-packageName}</packageName>
-                            <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
-                            <configOptions>
-                                <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
-                                <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                <useJakartaEe>true</useJakartaEe>
-                                <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
-                                <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
-                                <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
-                            </configOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>net.revelc.code.formatter</groupId>
-                <artifactId>formatter-maven-plugin</artifactId>
-                <version>${formatter-plugin-version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

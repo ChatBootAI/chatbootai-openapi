@@ -1,6 +1,3 @@
-**/ChatApi.java
 **/RestApplication.java
 **/RestResourceRoot.java
 **/main/openapi/openapi.yaml
-**/pom.xml
-**/README.md
