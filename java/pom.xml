@@ -30,6 +30,9 @@
         <openapi-generator-plugin-useSwaggerAnnotations>false</openapi-generator-plugin-useSwaggerAnnotations>
         <openapi-generator-plugin-useBeanValidation>false</openapi-generator-plugin-useBeanValidation>
         <formatter-plugin-version>2.23.0</formatter-plugin-version>
+
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <profiles>
