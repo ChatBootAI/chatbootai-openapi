@@ -7,13 +7,27 @@
     <name>ChatBootAI :: OpenAPI :: Java</name>
     <version>0.0.1-SNAPSHOT</version>
 
-    <modules>
-        <module>jaxrs-api</module>
-        <module>jaxrs-model</module>
-    </modules>
+    <!--    <modules>-->
+    <!--        <module>jaxrs-api</module>-->
+    <!--        <module>jaxrs-model</module>-->
+    <!--    </modules>-->
 
     <properties>
         <openapi-generator-plugin-version>7.1.0</openapi-generator-plugin-version>
+        <openapi-generator-plugin-verbose>false</openapi-generator-plugin-verbose>
+        <openapi-generator-plugin-dryRun>false</openapi-generator-plugin-dryRun>
+        <openapi-generator-plugin-inputSpec>${project.basedir}/../openapi.yml</openapi-generator-plugin-inputSpec>
+        <openapi-generator-plugin-apiPackage>ai.chatboot.api</openapi-generator-plugin-apiPackage>
+        <openapi-generator-plugin-modelPackage>ai.chatboot.model</openapi-generator-plugin-modelPackage>
+        <openapi-generator-plugin-packageName>ai.chatboot</openapi-generator-plugin-packageName>
+        <openapi-generator-plugin-groupId>ai.chatboot.openapi.java</openapi-generator-plugin-groupId>
+        <openapi-generator-plugin-artifactVersion>${project.version}</openapi-generator-plugin-artifactVersion>
+        <openapi-generator-plugin-sourceFolder>src/java/main</openapi-generator-plugin-sourceFolder>
+        <openapi-generator-plugin-skipOperationExample>true</openapi-generator-plugin-skipOperationExample>
+        <openapi-generator-plugin-dateLibrary>java8</openapi-generator-plugin-dateLibrary>
+        <openapi-generator-plugin-generatePom>false</openapi-generator-plugin-generatePom>
+        <openapi-generator-plugin-configHelp>false</openapi-generator-plugin-configHelp>
+        <openapi-generator-plugin-useSwaggerAnnotations>false</openapi-generator-plugin-useSwaggerAnnotations>
         <formatter-plugin-version>2.23.0</formatter-plugin-version>
     </properties>
 
@@ -25,52 +39,67 @@
                 <version>${openapi-generator-plugin-version}</version>
                 <executions>
                     <execution>
+                        <!-- JAXRS-API -->
                         <id>jaxrs-api</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
+
                         <configuration>
-                            <verbose>false</verbose>
-                            <inputSpec>openapi.yaml</inputSpec>
-                            <inputSpecRootDirectory>../</inputSpecRootDirectory>
                             <generatorName>jaxrs-spec</generatorName>
                             <output>jaxrs-api</output>
                             <generateApis>true</generateApis>
                             <generateModels>false</generateModels>
-                            <apiPackage>ai.chatboot.api</apiPackage>
-                            <modelPackage>ai.chatboot.model</modelPackage>
-                            <packageName>ai.chatboot</packageName>
-                            <groupId>ai.chatboot.openapi.java</groupId>
                             <artifactId>jaxrs-api</artifactId>
-                            <artifactVersion>0.0.1-SNAPSHOT</artifactVersion>
-                            <skipOperationExample>true</skipOperationExample>
+
+                            <groupId>${openapi-generator-plugin-groupId}</groupId>
+                            <artifactVersion>${openapi-generator-plugin-artifactVersion}</artifactVersion>
+                            <verbose>${openapi-generator-plugin-verbose}</verbose>
+                            <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                            <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                            <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                            <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                            <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                            <packageName>${openapi-generator-plugin-packageName}</packageName>
+                            <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
                             <configOptions>
-                                <sourceFolder>src/java/main</sourceFolder>
+                                <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
+                                <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
+                                <useJakartaEe>false</useJakartaEe>
+                                <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
+                                <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
                             </configOptions>
                         </configuration>
                     </execution>
                     <execution>
+                        <!-- JAXRS-MODEL -->
                         <id>jaxrs-model</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <verbose>false</verbose>
-                            <inputSpec>openapi.yaml</inputSpec>
-                            <inputSpecRootDirectory>../</inputSpecRootDirectory>
                             <generatorName>jaxrs-spec</generatorName>
                             <output>jaxrs-model</output>
                             <generateApis>false</generateApis>
                             <generateModels>true</generateModels>
-                            <apiPackage>ai.chatboot.api</apiPackage>
-                            <modelPackage>ai.chatboot.model</modelPackage>
-                            <packageName>ai.chatboot</packageName>
-                            <groupId>ai.chatboot.openapi.java</groupId>
                             <artifactId>jaxrs-model</artifactId>
-                            <artifactVersion>0.0.1-SNAPSHOT</artifactVersion>
-                            <skipOperationExample>true</skipOperationExample>
+
+                            <groupId>${openapi-generator-plugin-groupId}</groupId>
+                            <artifactVersion>${openapi-generator-plugin-artifactVersion}</artifactVersion>
+                            <verbose>${openapi-generator-plugin-verbose}</verbose>
+                            <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                            <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                            <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                            <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                            <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                            <packageName>${openapi-generator-plugin-packageName}</packageName>
+                            <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
                             <configOptions>
-                                <sourceFolder>src/java/main</sourceFolder>
+                                <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
+                                <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
+                                <useJakartaEe>false</useJakartaEe>
+                                <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
+                                <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
                             </configOptions>
                         </configuration>
                     </execution>
