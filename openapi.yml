@@ -79,7 +79,7 @@ paths:
         - completions
       summary: ''
       description: ''
-      operationId: ''
+      operationId: 'completion'
       requestBody:
         content:
           application/json:
@@ -139,7 +139,7 @@ paths:
         - embeddings
       summary: ''
       description: ''
-      operationId: ''
+      operationId: 'embedding'
       requestBody:
         content:
           application/json:
@@ -186,7 +186,7 @@ paths:
         Given a input text, outputs if the model classifies it as violating
         OpenAI's content policy.
       description: ''
-      operationId: ''
+      operationId: 'moderation'
       requestBody:
         content:
           application/json:

@@ -29,6 +29,7 @@
         <openapi-generator-plugin-configHelp>false</openapi-generator-plugin-configHelp>
         <openapi-generator-plugin-useSwaggerAnnotations>false</openapi-generator-plugin-useSwaggerAnnotations>
         <openapi-generator-plugin-useBeanValidation>false</openapi-generator-plugin-useBeanValidation>
+        <openapi-generator-plugin-apiNameSuffix>Resource</openapi-generator-plugin-apiNameSuffix>
         <formatter-plugin-version>2.23.0</formatter-plugin-version>
 
         <maven.compiler.release>11</maven.compiler.release>
@@ -65,6 +66,7 @@
                                     <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
                                     <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
                                     <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
                                     <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
                                     <configOptions>
                                         <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
@@ -95,6 +97,7 @@
                                     <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
                                     <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
                                     <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
                                     <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
                                     <configOptions>
                                         <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
@@ -126,6 +129,7 @@
                                     <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
                                     <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
                                     <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
                                     <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
                                     <configOptions>
                                         <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
@@ -156,6 +160,7 @@
                                     <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
                                     <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
                                     <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
                                     <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
                                     <configOptions>
                                         <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
