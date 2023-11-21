@@ -65,7 +65,8 @@ openapi-generator generate -i openapi.yml -g jaxrs-spec -o ./java/java-api --api
 # References
 
 * [OpenAPI Initiative](https://www.openapis.org/) and the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-* [The OpenAPI API Reference for the Chat endpoint](https://platform.openai.com/docs/api-reference/chat)
+* [The OpenAPI API Reference for the OpenAI endpoints](https://platform.openai.com/docs/api-reference/chat)
+* [The OpenAI OpenAPI contract](https://github.com/openai/openai-openapi)
 * [Chat Backend Protocol](https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md)
 * [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)
 * [OpenAPI online editor](https://editor.swagger.io)
