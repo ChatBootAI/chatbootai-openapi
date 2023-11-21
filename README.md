@@ -26,7 +26,7 @@ The directory structure is as follows:
 
 The ChatBootAI OpenAPI Contract in located under the `openapi.yml` file.
 
-You can also visualize the OpenAPI Contract using the [OpenAPI online editor](https://editor.swagger.io)
+You can also visualize the OpenAPI Contract using the [OpenAPI online editor](https://editor.swagger.io?url=https://raw.githubusercontent.com/ChatBootAI/chatbootai-openapi/main/openapi.yml)
 
 # Manually Generating the model and APIs from the ChatBootAI OpenAPI Contract
 
