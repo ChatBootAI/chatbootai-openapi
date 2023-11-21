@@ -2,7 +2,7 @@
 
 We :heart: pull requests and we're always working to make it as easy as possible for people to contribute.
 
-If you want to contribute but don't know on where you can help, check the [issues](https://github.com/ChatBootAI/chatbootai-openapi) and look for ones with the `PR-welcome` label.
+If you want to contribute but don't know on where you can help, check the [issues](https://github.com/ChatBootAI/chatbootai-openapi/issues) and look for ones with the `PR-welcome` label.
 
 We prefer small pull requests with minimal code changes. The smaller they are the easier they are to review and merge.
 A team member will pick up your PR and review it as soon as they can. They may ask for changes or reject your pull request. This is not a reflection of you as an engineer or a person. Please accept feedback graciously as we will also try to be sensitive when providing it.
@@ -17,7 +17,7 @@ By participating in this project you agree to abide the terms of our [Code of Co
 
 ## Reporting Bugs or asking for new features
 
-Please use the [issue tracker](https://github.com/ChatBootAI/chatbootai-openapi) to report any bugs or suggest any enhancements.
+Please use the [issue tracker](https://github.com/ChatBootAI/chatbootai-openapi/issues) to report any bugs or suggest any enhancements.
 Be sure to search through the existing issues before creating a new one, and add as much detail as possible to your issue.
 
 ## Pull request (PR) process
