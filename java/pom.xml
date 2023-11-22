@@ -29,7 +29,7 @@
         <openapi-generator-plugin-configHelp>false</openapi-generator-plugin-configHelp>
         <openapi-generator-plugin-useSwaggerAnnotations>false</openapi-generator-plugin-useSwaggerAnnotations>
         <openapi-generator-plugin-useBeanValidation>false</openapi-generator-plugin-useBeanValidation>
-        <openapi-generator-plugin-apiNameSuffix>Resource</openapi-generator-plugin-apiNameSuffix>
+        <openapi-generator-plugin-apiNameSuffix>API</openapi-generator-plugin-apiNameSuffix>
         <formatter-plugin-version>2.23.0</formatter-plugin-version>
 
         <maven.compiler.release>11</maven.compiler.release>
@@ -169,6 +169,73 @@
                                         <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
                                         <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
                                         <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <!-- QUARKUS REST API -->
+                                <id>quarkus-api</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+
+                                <configuration>
+                                    <generatorName>jaxrs-spec</generatorName>
+                                    <output>quarkus-api</output>
+                                    <generateApis>true</generateApis>
+                                    <generateModels>false</generateModels>
+
+                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
+                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <configOptions>
+                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
+                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
+                                        <useJakartaEe>true</useJakartaEe>
+                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
+                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
+                                        <useSwaggerAnnotations>false</useSwaggerAnnotations>
+                                        <library>quarkus</library>
+                                        <useMicroProfileOpenAPIAnnotations>true</useMicroProfileOpenAPIAnnotations>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <!-- QUARKUS REST MODEL -->
+                                <id>quarkus-model</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <generatorName>jaxrs-spec</generatorName>
+                                    <output>quarkus-model</output>
+                                    <generateApis>false</generateApis>
+                                    <generateModels>true</generateModels>
+
+                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
+                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <configOptions>
+                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
+                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
+                                        <useJakartaEe>true</useJakartaEe>
+                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
+                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
+                                        <useSwaggerAnnotations>false</useSwaggerAnnotations>
+                                        <library>quarkus</library>
+                                        <useMicroProfileOpenAPIAnnotations>true</useMicroProfileOpenAPIAnnotations>
                                     </configOptions>
                                 </configuration>
                             </execution>

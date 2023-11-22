@@ -1,0 +1,7 @@
+**/RestApplication.java
+**/RestResourceRoot.java
+src/main/openapi/openapi.yaml
+src/main/docker/Dockerfile.jvm
+src/main/docker/Dockerfile.native
+src/main/resources/application.properties
+.dockerignore

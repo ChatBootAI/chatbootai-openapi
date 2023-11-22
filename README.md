@@ -70,3 +70,4 @@ openapi-generator generate -i openapi.yml -g jaxrs-spec -o ./java/java-api --api
 * [Chat Backend Protocol](https://github.com/Azure/azureml_run_specification/blob/chat-protocol/specs/chat-protocol/chat-app-protocol.md)
 * [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)
 * [OpenAPI online editor](https://editor.swagger.io)
+* [Kiota](https://learn.microsoft.com/en-us/openapi/kiota)
