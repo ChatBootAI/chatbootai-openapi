@@ -1,9 +1,15 @@
 package ai.chatboot.api;
 
 import ai.chatboot.model.ChatRequest;
+import ai.chatboot.model.HttpError;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+
+
+import java.io.InputStream;
+import java.util.Map;
+import java.util.List;
 
 
 @Path("/chat")

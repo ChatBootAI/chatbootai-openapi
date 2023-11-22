@@ -12,6 +12,8 @@
         <module>jakarta-model</module>
         <module>jaxrs-api</module>
         <module>jaxrs-model</module>
+        <module>quarkus-api</module>
+        <module>quarkus-model</module>
     </modules>
 
     <properties>
@@ -47,166 +49,6 @@
                         <version>${openapi-generator-plugin-version}</version>
                         <executions>
                             <execution>
-                                <!-- JAXRS API -->
-                                <id>jaxrs-api</id>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-
-                                <configuration>
-                                    <generatorName>jaxrs-spec</generatorName>
-                                    <output>jaxrs-api</output>
-                                    <generateApis>true</generateApis>
-                                    <generateModels>false</generateModels>
-
-                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
-                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
-                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
-                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
-                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
-                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
-                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
-                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
-                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
-                                    <configOptions>
-                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
-                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                        <useJakartaEe>false</useJakartaEe>
-                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
-                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
-                                        <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
-                                    </configOptions>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <!-- JAXRS MODEL -->
-                                <id>jaxrs-model</id>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <generatorName>jaxrs-spec</generatorName>
-                                    <output>jaxrs-model</output>
-                                    <generateApis>false</generateApis>
-                                    <generateModels>true</generateModels>
-
-                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
-                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
-                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
-                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
-                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
-                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
-                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
-                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
-                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
-                                    <configOptions>
-                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
-                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                        <useJakartaEe>false</useJakartaEe>
-                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
-                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
-                                        <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
-                                    </configOptions>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <!-- JAKARTA REST API -->
-                                <id>jakarta-api</id>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-
-                                <configuration>
-                                    <generatorName>jaxrs-spec</generatorName>
-                                    <output>jakarta-api</output>
-                                    <generateApis>true</generateApis>
-                                    <generateModels>false</generateModels>
-
-                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
-                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
-                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
-                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
-                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
-                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
-                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
-                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
-                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
-                                    <configOptions>
-                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
-                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                        <useJakartaEe>true</useJakartaEe>
-                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
-                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
-                                        <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
-                                    </configOptions>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <!-- JAKARTA REST MODEL -->
-                                <id>jakarta-model</id>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <generatorName>jaxrs-spec</generatorName>
-                                    <output>jakarta-model</output>
-                                    <generateApis>false</generateApis>
-                                    <generateModels>true</generateModels>
-
-                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
-                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
-                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
-                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
-                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
-                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
-                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
-                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
-                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
-                                    <configOptions>
-                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
-                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                        <useJakartaEe>true</useJakartaEe>
-                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
-                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
-                                        <useSwaggerAnnotations>${openapi-generator-plugin-useSwaggerAnnotations}</useSwaggerAnnotations>
-                                    </configOptions>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <!-- QUARKUS REST API -->
-                                <id>quarkus-api</id>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-
-                                <configuration>
-                                    <generatorName>jaxrs-spec</generatorName>
-                                    <output>quarkus-api</output>
-                                    <generateApis>true</generateApis>
-                                    <generateModels>false</generateModels>
-
-                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
-                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
-                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
-                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
-                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
-                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
-                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
-                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
-                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
-                                    <configOptions>
-                                        <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
-                                        <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
-                                        <useJakartaEe>true</useJakartaEe>
-                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
-                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
-                                        <useSwaggerAnnotations>false</useSwaggerAnnotations>
-                                        <library>quarkus</library>
-                                        <useMicroProfileOpenAPIAnnotations>true</useMicroProfileOpenAPIAnnotations>
-                                    </configOptions>
-                                </configuration>
-                            </execution>
-                            <execution>
                                 <!-- QUARKUS REST MODEL -->
                                 <id>quarkus-model</id>
                                 <goals>
@@ -214,7 +56,7 @@
                                 </goals>
                                 <configuration>
                                     <generatorName>jaxrs-spec</generatorName>
-                                    <output>quarkus-model</output>
+                                    <output>quarkus-model2</output>
                                     <generateApis>false</generateApis>
                                     <generateModels>true</generateModels>
 
@@ -232,7 +74,7 @@
                                         <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
                                         <useJakartaEe>true</useJakartaEe>
                                         <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
-                                        <generatePom>${openapi-generator-plugin-generatePom}</generatePom>
+                                        <generatePom>true</generatePom>
                                         <useSwaggerAnnotations>false</useSwaggerAnnotations>
                                         <library>quarkus</library>
                                         <useMicroProfileOpenAPIAnnotations>true</useMicroProfileOpenAPIAnnotations>
