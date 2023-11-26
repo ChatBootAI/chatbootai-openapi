@@ -38,6 +38,34 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>net.revelc.code.formatter</groupId>
+                    <artifactId>formatter-maven-plugin</artifactId>
+                    <version>${formatter-plugin-version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>validate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <configFile>${project.basedir}/../eclipse-java-google-style.xml</configFile>
+                        <compilerCompliance>11</compilerCompliance>
+                        <compilerSource>11</compilerSource>
+                        <compilerTargetPlatform>11</compilerTargetPlatform>
+                        <lineEnding>LF</lineEnding>
+                        <removeTrailingWhitespace>true</removeTrailingWhitespace>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
     <profiles>
         <profile>
             <id>generate-code</id>
@@ -68,12 +96,14 @@
                                     <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
                                     <packageName>${openapi-generator-plugin-packageName}</packageName>
                                     <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
-                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}
+                                    </skipOperationExample>
                                     <configOptions>
                                         <sourceFolder>${openapi-generator-plugin-sourceFolder}</sourceFolder>
                                         <dateLibrary>${openapi-generator-plugin-dateLibrary}</dateLibrary>
                                         <useJakartaEe>true</useJakartaEe>
-                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}</useBeanValidation>
+                                        <useBeanValidation>${openapi-generator-plugin-useBeanValidation}
+                                        </useBeanValidation>
                                         <generatePom>true</generatePom>
                                         <useSwaggerAnnotations>false</useSwaggerAnnotations>
                                         <library>quarkus</library>
@@ -82,14 +112,6 @@
                                 </configuration>
                             </execution>
                         </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>net.revelc.code.formatter</groupId>
-                        <artifactId>formatter-maven-plugin</artifactId>
-                        <version>${formatter-plugin-version}</version>
-                        <configuration>
-                            <encoding>UTF-8</encoding>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
