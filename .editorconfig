@@ -9,7 +9,7 @@ insert_final_newline = true
 max_line_length = 120
 tab_width = 4
 
-[pom.xml]
+[{pom.xml,eclipse-java-google-style.xml}]
 max_line_length = 240
 
 [{*.har,*.jsb2,*.jsb3,*.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,bowerrc,jest.config}]
