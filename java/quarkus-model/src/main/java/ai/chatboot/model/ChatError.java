@@ -9,11 +9,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+/**
+ * Error sent by ChatBoot.
+ **/
 
-
-@JsonTypeName("httpError")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-11-18T18:40:39.953789+01:00[Europe/Paris]")
-public class HttpError   {
+@org.eclipse.microprofile.openapi.annotations.media.Schema(description="Error sent by ChatBoot.")
+@JsonTypeName("chatError")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T13:53:53.981110+01:00[Europe/Paris]")
+public class ChatError   {
   private BigDecimal statusCode;
   private String code;
   private String error;
@@ -21,12 +24,13 @@ public class HttpError   {
 
   /**
    **/
-  public HttpError statusCode(BigDecimal statusCode) {
+  public ChatError statusCode(BigDecimal statusCode) {
     this.statusCode = statusCode;
     return this;
   }
 
   
+  @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("statusCode")
   public BigDecimal getStatusCode() {
     return statusCode;
@@ -39,12 +43,13 @@ public class HttpError   {
 
   /**
    **/
-  public HttpError code(String code) {
+  public ChatError code(String code) {
     this.code = code;
     return this;
   }
 
   
+  @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("code")
   public String getCode() {
     return code;
@@ -57,12 +62,13 @@ public class HttpError   {
 
   /**
    **/
-  public HttpError error(String error) {
+  public ChatError error(String error) {
     this.error = error;
     return this;
   }
 
   
+  @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("error")
   public String getError() {
     return error;
@@ -75,12 +81,13 @@ public class HttpError   {
 
   /**
    **/
-  public HttpError message(String message) {
+  public ChatError message(String message) {
     this.message = message;
     return this;
   }
 
   
+  @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("message")
   public String getMessage() {
     return message;
@@ -100,11 +107,11 @@ public class HttpError   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HttpError httpError = (HttpError) o;
-    return Objects.equals(this.statusCode, httpError.statusCode) &&
-        Objects.equals(this.code, httpError.code) &&
-        Objects.equals(this.error, httpError.error) &&
-        Objects.equals(this.message, httpError.message);
+    ChatError chatError = (ChatError) o;
+    return Objects.equals(this.statusCode, chatError.statusCode) &&
+        Objects.equals(this.code, chatError.code) &&
+        Objects.equals(this.error, chatError.error) &&
+        Objects.equals(this.message, chatError.message);
   }
 
   @Override
@@ -115,7 +122,7 @@ public class HttpError   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HttpError {\n");
+    sb.append("class ChatError {\n");
     
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");

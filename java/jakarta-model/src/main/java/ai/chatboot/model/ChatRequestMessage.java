@@ -1,9 +1,10 @@
 package ai.chatboot.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import java.util.HashMap;
-import java.util.Map;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import io.swagger.annotations.*;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -12,9 +13,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 
-@JsonTypeName("message")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-11-18T18:40:39.953789+01:00[Europe/Paris]")
-public class Message   {
+@JsonTypeName("chatRequestMessage")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T13:52:44.900078+01:00[Europe/Paris]")
+public class ChatRequestMessage   {
   private String content;
   public enum RoleEnum {
 
@@ -64,17 +65,17 @@ public class Message   {
 }
 
   private RoleEnum role;
-  private Map<String, Object> context = new HashMap<>();
-  private Map<String, Object> sessionState = new HashMap<>();
 
   /**
+   * The contents of the system message.
    **/
-  public Message content(String content) {
+  public ChatRequestMessage content(String content) {
     this.content = content;
     return this;
   }
 
   
+  @ApiModelProperty(required = true, value = "The contents of the system message.")
   @JsonProperty("content")
   public String getContent() {
     return content;
@@ -86,13 +87,15 @@ public class Message   {
   }
 
   /**
+   * The role of the messages author.
    **/
-  public Message role(RoleEnum role) {
+  public ChatRequestMessage role(RoleEnum role) {
     this.role = role;
     return this;
   }
 
   
+  @ApiModelProperty(required = true, value = "The role of the messages author.")
   @JsonProperty("role")
   public RoleEnum getRole() {
     return role;
@@ -103,74 +106,6 @@ public class Message   {
     this.role = role;
   }
 
-  /**
-   **/
-  public Message context(Map<String, Object> context) {
-    this.context = context;
-    return this;
-  }
-
-  
-  @JsonProperty("context")
-  public Map<String, Object> getContext() {
-    return context;
-  }
-
-  @JsonProperty("context")
-  public void setContext(Map<String, Object> context) {
-    this.context = context;
-  }
-
-  public Message putContextItem(String key, Object contextItem) {
-    if (this.context == null) {
-      this.context = new HashMap<>();
-    }
-
-    this.context.put(key, contextItem);
-    return this;
-  }
-
-  public Message removeContextItem(Object contextItem) {
-    if (contextItem != null && this.context != null) {
-      this.context.remove(contextItem);
-    }
-
-    return this;
-  }
-  /**
-   **/
-  public Message sessionState(Map<String, Object> sessionState) {
-    this.sessionState = sessionState;
-    return this;
-  }
-
-  
-  @JsonProperty("session_state")
-  public Map<String, Object> getSessionState() {
-    return sessionState;
-  }
-
-  @JsonProperty("session_state")
-  public void setSessionState(Map<String, Object> sessionState) {
-    this.sessionState = sessionState;
-  }
-
-  public Message putSessionStateItem(String key, Object sessionStateItem) {
-    if (this.sessionState == null) {
-      this.sessionState = new HashMap<>();
-    }
-
-    this.sessionState.put(key, sessionStateItem);
-    return this;
-  }
-
-  public Message removeSessionStateItem(Object sessionStateItem) {
-    if (sessionStateItem != null && this.sessionState != null) {
-      this.sessionState.remove(sessionStateItem);
-    }
-
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -180,27 +115,23 @@ public class Message   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Message message = (Message) o;
-    return Objects.equals(this.content, message.content) &&
-        Objects.equals(this.role, message.role) &&
-        Objects.equals(this.context, message.context) &&
-        Objects.equals(this.sessionState, message.sessionState);
+    ChatRequestMessage chatRequestMessage = (ChatRequestMessage) o;
+    return Objects.equals(this.content, chatRequestMessage.content) &&
+        Objects.equals(this.role, chatRequestMessage.role);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, role, context, sessionState);
+    return Objects.hash(content, role);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Message {\n");
+    sb.append("class ChatRequestMessage {\n");
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    context: ").append(toIndentedString(context)).append("\n");
-    sb.append("    sessionState: ").append(toIndentedString(sessionState)).append("\n");
     sb.append("}");
     return sb.toString();
   }

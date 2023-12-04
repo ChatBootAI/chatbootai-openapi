@@ -1,7 +1,18 @@
 package ai.chatboot.api;
 
+import ai.chatboot.model.ChatError;
+import ai.chatboot.model.ChatRequest;
+import ai.chatboot.model.ChatResponse;
+
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
+
+
+
+
+import java.io.InputStream;
+import java.util.Map;
+import java.util.List;
 
 
 @org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition(
@@ -12,21 +23,24 @@ import jakarta.ws.rs.core.Response;
    tags = @org.eclipse.microprofile.openapi.annotations.tags.Tag(name="chat", description="Chat with the ChatBootAI")
 )
 @Path("/chat")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-11-22T12:34:20.724274+01:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T13:53:53.859094+01:00[Europe/Paris]")
 public class ChatAPI {
 
     @POST
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     
-    @org.eclipse.microprofile.openapi.annotations.Operation(operationId = "chat", summary = "Chats with the bot", description = "Chats with the bot")
+    @org.eclipse.microprofile.openapi.annotations.Operation(operationId = "chat", summary = "Engage a conversation with ChatBootAI", description = "Post a prompt to ChatBootAI and receive a response")
     @org.eclipse.microprofile.openapi.annotations.tags.Tag(name="chat")
     @org.eclipse.microprofile.openapi.annotations.responses.APIResponses(value = { 
-            @org.eclipse.microprofile.openapi.annotations.responses.APIResponse(responseCode = "400", description = "Default Response",  content = { 
-                @org.eclipse.microprofile.openapi.annotations.media.Content(mediaType="application/json", schema = @org.eclipse.microprofile.openapi.annotations.media.Schema(implementation = HttpError.class))
+            @org.eclipse.microprofile.openapi.annotations.responses.APIResponse(responseCode = "201", description = "Chat response",  content = { 
+                @org.eclipse.microprofile.openapi.annotations.media.Content(mediaType="application/json", schema = @org.eclipse.microprofile.openapi.annotations.media.Schema(implementation = ChatResponse.class))
             }),
-            @org.eclipse.microprofile.openapi.annotations.responses.APIResponse(responseCode = "500", description = "Default Response",  content = { 
-                @org.eclipse.microprofile.openapi.annotations.media.Content(mediaType="application/json", schema = @org.eclipse.microprofile.openapi.annotations.media.Schema(implementation = HttpError.class))
+            @org.eclipse.microprofile.openapi.annotations.responses.APIResponse(responseCode = "400", description = "HTTP Error Response",  content = { 
+                @org.eclipse.microprofile.openapi.annotations.media.Content(mediaType="application/json", schema = @org.eclipse.microprofile.openapi.annotations.media.Schema(implementation = ChatError.class))
+            }),
+            @org.eclipse.microprofile.openapi.annotations.responses.APIResponse(responseCode = "500", description = "HTTP Error Response",  content = { 
+                @org.eclipse.microprofile.openapi.annotations.media.Content(mediaType="application/json", schema = @org.eclipse.microprofile.openapi.annotations.media.Schema(implementation = ChatError.class))
             })
         })
     public Response chat(ChatRequest chatRequest) {

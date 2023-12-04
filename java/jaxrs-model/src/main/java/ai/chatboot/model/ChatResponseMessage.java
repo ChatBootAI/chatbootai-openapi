@@ -1,19 +1,23 @@
 package ai.chatboot.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import io.swagger.annotations.*;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-
-
-@org.eclipse.microprofile.openapi.annotations.media.Schema(description="")
-@JsonTypeName("chatRequest_messages_inner")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T10:19:53.292498+01:00[Europe/Paris]")
-public class ChatRequestMessagesInner   {
+/**
+ * Represents the message that is contained in the chat response returned by the model.
+ **/
+@ApiModel(description = "Represents the message that is contained in the chat response returned by the model.")
+@JsonTypeName("chatResponseMessage")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T13:53:53.550608+01:00[Europe/Paris]")
+public class ChatResponseMessage   {
   private String content;
   public enum RoleEnum {
 
@@ -65,15 +69,15 @@ public class ChatRequestMessagesInner   {
   private RoleEnum role;
 
   /**
-   * The contents of the system message.
+   * The contents of the message.
    **/
-  public ChatRequestMessagesInner content(String content) {
+  public ChatResponseMessage content(String content) {
     this.content = content;
     return this;
   }
 
   
-  @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "The contents of the system message.")
+  @ApiModelProperty(required = true, value = "The contents of the message.")
   @JsonProperty("content")
   public String getContent() {
     return content;
@@ -85,15 +89,14 @@ public class ChatRequestMessagesInner   {
   }
 
   /**
-   * The role of the messages author.
    **/
-  public ChatRequestMessagesInner role(RoleEnum role) {
+  public ChatResponseMessage role(RoleEnum role) {
     this.role = role;
     return this;
   }
 
   
-  @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "The role of the messages author.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty("role")
   public RoleEnum getRole() {
     return role;
@@ -113,9 +116,9 @@ public class ChatRequestMessagesInner   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChatRequestMessagesInner chatRequestMessagesInner = (ChatRequestMessagesInner) o;
-    return Objects.equals(this.content, chatRequestMessagesInner.content) &&
-        Objects.equals(this.role, chatRequestMessagesInner.role);
+    ChatResponseMessage chatResponseMessage = (ChatResponseMessage) o;
+    return Objects.equals(this.content, chatResponseMessage.content) &&
+        Objects.equals(this.role, chatResponseMessage.role);
   }
 
   @Override
@@ -126,7 +129,7 @@ public class ChatRequestMessagesInner   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChatRequestMessagesInner {\n");
+    sb.append("class ChatResponseMessage {\n");
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

@@ -10,9 +10,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 
-@JsonTypeName("chatRequest_messages_inner")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-11-18T18:40:39.953789+01:00[Europe/Paris]")
-public class ChatRequestMessagesInner   {
+@org.eclipse.microprofile.openapi.annotations.media.Schema(description="")
+@JsonTypeName("chatRequestMessage")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T13:53:53.981110+01:00[Europe/Paris]")
+public class ChatRequestMessage   {
   private String content;
   public enum RoleEnum {
 
@@ -64,13 +65,15 @@ public class ChatRequestMessagesInner   {
   private RoleEnum role;
 
   /**
+   * The contents of the system message.
    **/
-  public ChatRequestMessagesInner content(String content) {
+  public ChatRequestMessage content(String content) {
     this.content = content;
     return this;
   }
 
   
+  @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "The contents of the system message.")
   @JsonProperty("content")
   public String getContent() {
     return content;
@@ -82,13 +85,15 @@ public class ChatRequestMessagesInner   {
   }
 
   /**
+   * The role of the messages author.
    **/
-  public ChatRequestMessagesInner role(RoleEnum role) {
+  public ChatRequestMessage role(RoleEnum role) {
     this.role = role;
     return this;
   }
 
   
+  @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "The role of the messages author.")
   @JsonProperty("role")
   public RoleEnum getRole() {
     return role;
@@ -108,9 +113,9 @@ public class ChatRequestMessagesInner   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChatRequestMessagesInner chatRequestMessagesInner = (ChatRequestMessagesInner) o;
-    return Objects.equals(this.content, chatRequestMessagesInner.content) &&
-        Objects.equals(this.role, chatRequestMessagesInner.role);
+    ChatRequestMessage chatRequestMessage = (ChatRequestMessage) o;
+    return Objects.equals(this.content, chatRequestMessage.content) &&
+        Objects.equals(this.role, chatRequestMessage.role);
   }
 
   @Override
@@ -121,7 +126,7 @@ public class ChatRequestMessagesInner   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChatRequestMessagesInner {\n");
+    sb.append("class ChatRequestMessage {\n");
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

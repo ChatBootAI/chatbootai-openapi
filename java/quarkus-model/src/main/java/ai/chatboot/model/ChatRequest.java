@@ -1,6 +1,6 @@
 package ai.chatboot.model;
 
-import ai.chatboot.model.ChatRequestMessagesInner;
+import ai.chatboot.model.ChatRequestMessage;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @org.eclipse.microprofile.openapi.annotations.media.Schema(description="Represents the chat request sent to the model.")
 @JsonTypeName("chatRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T10:19:53.292498+01:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T13:53:53.981110+01:00[Europe/Paris]")
 public class ChatRequest   {
-  private List<ChatRequestMessagesInner> messages = new ArrayList<>();
+  private List<ChatRequestMessage> messages = new ArrayList<>();
   private String model;
   private Boolean stream;
   private BigDecimal temperature = new BigDecimal("1");
@@ -31,7 +31,7 @@ public class ChatRequest   {
   /**
    * A list of messages comprising the conversation so far.
    **/
-  public ChatRequest messages(List<ChatRequestMessagesInner> messages) {
+  public ChatRequest messages(List<ChatRequestMessage> messages) {
     this.messages = messages;
     return this;
   }
@@ -39,16 +39,16 @@ public class ChatRequest   {
   
   @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "A list of messages comprising the conversation so far.")
   @JsonProperty("messages")
-  public List<ChatRequestMessagesInner> getMessages() {
+  public List<ChatRequestMessage> getMessages() {
     return messages;
   }
 
   @JsonProperty("messages")
-  public void setMessages(List<ChatRequestMessagesInner> messages) {
+  public void setMessages(List<ChatRequestMessage> messages) {
     this.messages = messages;
   }
 
-  public ChatRequest addMessagesItem(ChatRequestMessagesInner messagesItem) {
+  public ChatRequest addMessagesItem(ChatRequestMessage messagesItem) {
     if (this.messages == null) {
       this.messages = new ArrayList<>();
     }
@@ -57,7 +57,7 @@ public class ChatRequest   {
     return this;
   }
 
-  public ChatRequest removeMessagesItem(ChatRequestMessagesInner messagesItem) {
+  public ChatRequest removeMessagesItem(ChatRequestMessage messagesItem) {
     if (messagesItem != null && this.messages != null) {
       this.messages.remove(messagesItem);
     }

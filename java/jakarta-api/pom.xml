@@ -17,6 +17,8 @@
         <joda-version>2.10.13</joda-version>
         <javax.annotation-api-version>2.1.1</javax.annotation-api-version>
         <jakarta.ws.rs-version>3.1.0</jakarta.ws.rs-version>
+        <swagger-annotations-version>1.6.12</swagger-annotations-version>
+        <!-- Project -->
         <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -31,6 +33,12 @@
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
             <version>${jakarta.ws.rs-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${javax.annotation-api-version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -49,9 +57,9 @@
             <version>${joda-version}</version>
         </dependency>
         <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <version>${javax.annotation-api-version}</version>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger-annotations-version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

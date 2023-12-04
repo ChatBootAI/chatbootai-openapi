@@ -1,48 +1,56 @@
 package ai.chatboot.model;
 
-import ai.chatboot.model.ChatRequestMessagesInner;
+import ai.chatboot.model.ChatRequestMessage;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import io.swagger.annotations.*;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-
-
+/**
+ * Represents the chat request sent to the model.
+ **/
+@ApiModel(description = "Represents the chat request sent to the model.")
 @JsonTypeName("chatRequest")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-11-18T18:40:39.798198+01:00[Europe/Paris]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T13:53:53.550608+01:00[Europe/Paris]")
 public class ChatRequest   {
-  private List<ChatRequestMessagesInner> messages = new ArrayList<>();
+  private List<ChatRequestMessage> messages = new ArrayList<>();
+  private String model;
   private Boolean stream;
-  private Map<String, String> context = new HashMap<>();
-  private Map<String, String> sessionState = new HashMap<>();
+  private BigDecimal temperature = new BigDecimal("1");
+  private BigDecimal topP = new BigDecimal("1");
+  private String user;
 
   /**
+   * A list of messages comprising the conversation so far.
    **/
-  public ChatRequest messages(List<ChatRequestMessagesInner> messages) {
+  public ChatRequest messages(List<ChatRequestMessage> messages) {
     this.messages = messages;
     return this;
   }
 
   
+  @ApiModelProperty(required = true, value = "A list of messages comprising the conversation so far.")
   @JsonProperty("messages")
-  public List<ChatRequestMessagesInner> getMessages() {
+  public List<ChatRequestMessage> getMessages() {
     return messages;
   }
 
   @JsonProperty("messages")
-  public void setMessages(List<ChatRequestMessagesInner> messages) {
+  public void setMessages(List<ChatRequestMessage> messages) {
     this.messages = messages;
   }
 
-  public ChatRequest addMessagesItem(ChatRequestMessagesInner messagesItem) {
+  public ChatRequest addMessagesItem(ChatRequestMessage messagesItem) {
     if (this.messages == null) {
       this.messages = new ArrayList<>();
     }
@@ -51,7 +59,7 @@ public class ChatRequest   {
     return this;
   }
 
-  public ChatRequest removeMessagesItem(ChatRequestMessagesInner messagesItem) {
+  public ChatRequest removeMessagesItem(ChatRequestMessage messagesItem) {
     if (messagesItem != null && this.messages != null) {
       this.messages.remove(messagesItem);
     }
@@ -59,6 +67,27 @@ public class ChatRequest   {
     return this;
   }
   /**
+   * ID of the model to use.
+   **/
+  public ChatRequest model(String model) {
+    this.model = model;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "ID of the model to use.")
+  @JsonProperty("model")
+  public String getModel() {
+    return model;
+  }
+
+  @JsonProperty("model")
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  /**
+   * If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data DONE
    **/
   public ChatRequest stream(Boolean stream) {
     this.stream = stream;
@@ -66,6 +95,7 @@ public class ChatRequest   {
   }
 
   
+  @ApiModelProperty(value = "If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data DONE")
   @JsonProperty("stream")
   public Boolean getStream() {
     return stream;
@@ -77,73 +107,65 @@ public class ChatRequest   {
   }
 
   /**
+   * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.  We generally recommend altering this or top_p but not both.
    **/
-  public ChatRequest context(Map<String, String> context) {
-    this.context = context;
+  public ChatRequest temperature(BigDecimal temperature) {
+    this.temperature = temperature;
     return this;
   }
 
   
-  @JsonProperty("context")
-  public Map<String, String> getContext() {
-    return context;
+  @ApiModelProperty(value = "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.  We generally recommend altering this or top_p but not both.")
+  @JsonProperty("temperature")
+  public BigDecimal getTemperature() {
+    return temperature;
   }
 
-  @JsonProperty("context")
-  public void setContext(Map<String, String> context) {
-    this.context = context;
+  @JsonProperty("temperature")
+  public void setTemperature(BigDecimal temperature) {
+    this.temperature = temperature;
   }
 
-  public ChatRequest putContextItem(String key, String contextItem) {
-    if (this.context == null) {
-      this.context = new HashMap<>();
-    }
-
-    this.context.put(key, contextItem);
-    return this;
-  }
-
-  public ChatRequest removeContextItem(String contextItem) {
-    if (contextItem != null && this.context != null) {
-      this.context.remove(contextItem);
-    }
-
-    return this;
-  }
   /**
+   * An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.  We generally recommend altering this or temperature but not both.
    **/
-  public ChatRequest sessionState(Map<String, String> sessionState) {
-    this.sessionState = sessionState;
+  public ChatRequest topP(BigDecimal topP) {
+    this.topP = topP;
     return this;
   }
 
   
-  @JsonProperty("session_state")
-  public Map<String, String> getSessionState() {
-    return sessionState;
+  @ApiModelProperty(value = "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.  We generally recommend altering this or temperature but not both.")
+  @JsonProperty("top_p")
+  public BigDecimal getTopP() {
+    return topP;
   }
 
-  @JsonProperty("session_state")
-  public void setSessionState(Map<String, String> sessionState) {
-    this.sessionState = sessionState;
+  @JsonProperty("top_p")
+  public void setTopP(BigDecimal topP) {
+    this.topP = topP;
   }
 
-  public ChatRequest putSessionStateItem(String key, String sessionStateItem) {
-    if (this.sessionState == null) {
-      this.sessionState = new HashMap<>();
-    }
-
-    this.sessionState.put(key, sessionStateItem);
+  /**
+   * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.
+   **/
+  public ChatRequest user(String user) {
+    this.user = user;
     return this;
   }
 
-  public ChatRequest removeSessionStateItem(String sessionStateItem) {
-    if (sessionStateItem != null && this.sessionState != null) {
-      this.sessionState.remove(sessionStateItem);
-    }
-
-    return this;
+  
+  @ApiModelProperty(value = "A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.")
+  @JsonProperty("user")
+  public String getUser() {
+    return user;
   }
+
+  @JsonProperty("user")
+  public void setUser(String user) {
+    this.user = user;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -155,14 +177,16 @@ public class ChatRequest   {
     }
     ChatRequest chatRequest = (ChatRequest) o;
     return Objects.equals(this.messages, chatRequest.messages) &&
+        Objects.equals(this.model, chatRequest.model) &&
         Objects.equals(this.stream, chatRequest.stream) &&
-        Objects.equals(this.context, chatRequest.context) &&
-        Objects.equals(this.sessionState, chatRequest.sessionState);
+        Objects.equals(this.temperature, chatRequest.temperature) &&
+        Objects.equals(this.topP, chatRequest.topP) &&
+        Objects.equals(this.user, chatRequest.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(messages, stream, context, sessionState);
+    return Objects.hash(messages, model, stream, temperature, topP, user);
   }
 
   @Override
@@ -171,9 +195,11 @@ public class ChatRequest   {
     sb.append("class ChatRequest {\n");
     
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
+    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    stream: ").append(toIndentedString(stream)).append("\n");
-    sb.append("    context: ").append(toIndentedString(context)).append("\n");
-    sb.append("    sessionState: ").append(toIndentedString(sessionState)).append("\n");
+    sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
+    sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }
