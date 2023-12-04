@@ -27,15 +27,15 @@ paths:
   # ################ #
 
   /chat:
-    summary: ChatBootAPI API
+    summary: Main ChatBootAI endpoint
     description: >-
-      The main ChatBootAIAPI allowing you to chat with a bot and receive
-      streaming responses
+      The main ChatBootAI endpoint allows you to chat with the bot and receive
+      responses (streaming or not)
     post:
       tags:
         - chat
-      summary: Chats with the bot
-      description: Chats with the bot
+      summary: Engage a conversation with ChatBootAI
+      description: Post a prompt to ChatBootAI and receive a response
       operationId: chat
       requestBody:
         content:
@@ -43,18 +43,62 @@ paths:
             schema:
               $ref: "#/components/schemas/chatRequest"
       responses:
+        '201':
+          description: Chat response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/chatResponse"
+              examples:
+                Response for completion:
+                  value: |
+                    {
+                      "id": "chatcmpl-123",
+                      "object": "chat.completion",
+                      "created": 1677652288,
+                      "model": "gpt-3.5-turbo-0613",
+                      "system_fingerprint": "fp_44709d6fcb",
+                      "choices": [{
+                        "index": 0,
+                        "message": {
+                          "role": "assistant",
+                          "content": "\n\nHello there, how may I assist you today?",
+                        },
+                        "finish_reason": "stop"
+                      }],
+                      "usage": {
+                        "prompt_tokens": 9,
+                        "completion_tokens": 12,
+                        "total_tokens": 21
+                      }
+                    }
+                Response for streaming:
+                  value: >
+                    {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613",
+                    "system_fingerprint": "fp_44709d6fcb",
+                    "choices":[{"index":0,"delta":{"role":"assistant","content":""},"finish_reason":null}]}
+
+
+                    {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613",
+                    "system_fingerprint": "fp_44709d6fcb",
+                    "choices":[{"index":0,"delta":{"content":"Hello"},"finish_reason":null}]}
+
+
+                    {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613",
+                    "system_fingerprint": "fp_44709d6fcb",
+                    "choices":[{"index":0,"delta":{"content":"!"},"finish_reason":null}]}
         "400":
-          description: Default Response
+          description: HTTP Error Response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/httpError"
+                $ref: "#/components/schemas/chatError"
         "500":
-          description: Default Response
+          description: HTTP Error Response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/httpError"
+                $ref: "#/components/schemas/chatError"
 
 components:
   schemas:
@@ -65,16 +109,20 @@ components:
 
     chatRequest:
       type: object
+      description: Represents the chat request sent to the model.
       properties:
         messages:
           type: array
+          description: A list of messages comprising the conversation so far.
           items:
             type: object
             properties:
               content:
                 type: string
+                description: The contents of the system message.
               role:
                 type: string
+                description: The role of the messages author.
                 enum:
                   - system
                   - user
@@ -84,24 +132,70 @@ components:
               - content
               - role
             additionalProperties: false
+        model:
+          type: string
+          description: ID of the model to use.
         stream:
           type: boolean
-        context:
-          type: object
-          additionalProperties:
-            type: string
-        session_state:
-          type: object
-          additionalProperties:
-            type: string
+          description: If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data DONE
+        temperature:
+          type: number
+          description: What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.  We generally recommend altering this or top_p but not both.
+          default: 1
+        top_p:
+          type: number
+          description: An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.  We generally recommend altering this or temperature but not both.
+          default: 1
+        user:
+          type: string
+          description: A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.
       required:
         - messages
 
-    message:
+    chatResponse:
       type: object
+      description: Represents the chat response returned by the model, based on the provided chat request.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the completion.
+        choices:
+          type: array
+          description: A list of chat completion choices. Can be more than one.
+          items:
+            type: object
+            properties:
+              index:
+                type: number
+                description: The index of the choice in the list of choices.
+              message:
+                $ref: "#/components/schemas/chatResponseMessage"
+            required:
+              - index
+              - message
+            additionalProperties: false
+        object:
+          type: string
+          description: The object type, which is always "chat"
+          enum: [ chat ]
+        created:
+          type: integer
+          description: The Unix timestamp (in seconds) of when the completion was created.
+        model:
+          type: string
+          description: The model used for the chat completion.
+      required:
+        - choices
+        - object
+
+    chatResponseMessage:
+      type: object
+      description: Represents the message that is contained in the chat response returned by the model.
       properties:
         content:
           type: string
+          description: The contents of the message.
+          nullable: true
         role:
           type: string
           enum:
@@ -109,41 +203,15 @@ components:
             - user
             - assistant
             - function
-        context:
-          type: object
-          additionalProperties: true
-        session_state:
-          type: object
-          additionalProperties: true
       required:
         - content
         - role
       additionalProperties: false
 
-    approachResponse:
-      type: object
-      properties:
-        choices:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: number
-              message:
-                $ref: "#/components/schemas/message"
-            required:
-              - index
-              - message
-            additionalProperties: false
-        object:
-          type: string
-      required:
-        - choices
-        - object
 
-    httpError:
+    chatError:
       type: object
+      description: Error sent by ChatBoot.
       properties:
         statusCode:
           type: number

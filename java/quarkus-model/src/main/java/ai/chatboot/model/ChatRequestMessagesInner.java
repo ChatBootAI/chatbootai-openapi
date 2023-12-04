@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @org.eclipse.microprofile.openapi.annotations.media.Schema(description="")
 @JsonTypeName("chatRequest_messages_inner")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-11-22T12:34:20.869454+01:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-12-04T10:19:53.292498+01:00[Europe/Paris]")
 public class ChatRequestMessagesInner   {
   private String content;
   public enum RoleEnum {
@@ -65,6 +65,7 @@ public class ChatRequestMessagesInner   {
   private RoleEnum role;
 
   /**
+   * The contents of the system message.
    **/
   public ChatRequestMessagesInner content(String content) {
     this.content = content;
@@ -72,7 +73,7 @@ public class ChatRequestMessagesInner   {
   }
 
   
-  @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "")
+  @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "The contents of the system message.")
   @JsonProperty("content")
   public String getContent() {
     return content;
@@ -84,6 +85,7 @@ public class ChatRequestMessagesInner   {
   }
 
   /**
+   * The role of the messages author.
    **/
   public ChatRequestMessagesInner role(RoleEnum role) {
     this.role = role;
@@ -91,7 +93,7 @@ public class ChatRequestMessagesInner   {
   }
 
   
-  @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "")
+  @org.eclipse.microprofile.openapi.annotations.media.Schema(required = true, description = "The role of the messages author.")
   @JsonProperty("role")
   public RoleEnum getRole() {
     return role;

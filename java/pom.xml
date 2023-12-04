@@ -84,7 +84,7 @@
                                 </goals>
                                 <configuration>
                                     <generatorName>jaxrs-spec</generatorName>
-                                    <output>quarkus-model2</output>
+                                    <output>quarkus-model</output>
                                     <generateApis>false</generateApis>
                                     <generateModels>true</generateModels>
 
