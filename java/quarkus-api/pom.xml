@@ -12,7 +12,6 @@
     </parent>
 
     <properties>
-        <joda-version>2.10.13</joda-version>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
         <quarkus.platform.version>3.5.3</quarkus.platform.version>
@@ -63,11 +62,6 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${joda-version}</version>
         </dependency>
     </dependencies>
 
