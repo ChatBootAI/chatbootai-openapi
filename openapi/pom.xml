@@ -10,7 +10,7 @@
     <properties>
         <generatedSourceFolder>generated-sources</generatedSourceFolder>
         <!-- OpenAPI Generator -->
-        <openapi-generator-plugin-version>7.1.0</openapi-generator-plugin-version>
+        <openapi-generator-plugin-version>7.2.0</openapi-generator-plugin-version>
         <openapi-generator-plugin-verbose>false</openapi-generator-plugin-verbose>
         <openapi-generator-plugin-dryRun>false</openapi-generator-plugin-dryRun>
         <openapi-generator-plugin-inputSpec>${project.basedir}/openapi-chatbootai.yml</openapi-generator-plugin-inputSpec>
