@@ -1,0 +1,6 @@
+# Genearted class files
+src/
+target/
+README.md
+_merged_spec.yaml
+.openapi-generator

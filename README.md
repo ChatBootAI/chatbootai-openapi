@@ -59,7 +59,7 @@ CLIENT generators:
 For example, to generate a Java client library from the ChatBootAI OpenAPI Contract, run the following command:
 
 ```bash
-openapi-generator generate -i openapi.yml -g jaxrs-spec -o ./java/java-api --api-package ai.chatboot.api --model-package ai.chatboot.model
+openapi-generator generate -i openapi-chatbootai.yml -g jaxrs-spec -o ./java/java-api --api-package ai.chatboot.api --model-package ai.chatboot.model
 ```
 
 # References
