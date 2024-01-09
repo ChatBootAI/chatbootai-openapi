@@ -7,21 +7,13 @@
     <name>ChatBootAI :: OpenAPI :: Generated Sources</name>
     <version>0.0.1-SNAPSHOT</version>
 
-<!--    <modules>-->
-<!--        <module>jakarta-api</module>-->
-<!--        <module>jakarta-model</module>-->
-<!--        <module>jaxrs-api</module>-->
-<!--        <module>jaxrs-model</module>-->
-<!--        <module>quarkus-api</module>-->
-<!--        <module>quarkus-model</module>-->
-<!--    </modules>-->
-
     <properties>
+        <generatedSourceFolder>generated-sources</generatedSourceFolder>
         <!-- OpenAPI Generator -->
         <openapi-generator-plugin-version>7.1.0</openapi-generator-plugin-version>
         <openapi-generator-plugin-verbose>false</openapi-generator-plugin-verbose>
         <openapi-generator-plugin-dryRun>false</openapi-generator-plugin-dryRun>
-        <openapi-generator-plugin-inputSpec>${project.basedir}/../openapi.yml</openapi-generator-plugin-inputSpec>
+        <openapi-generator-plugin-inputSpec>${project.basedir}/openapi-chatbootai.yml</openapi-generator-plugin-inputSpec>
         <openapi-generator-plugin-apiPackage>ai.chatboot.api</openapi-generator-plugin-apiPackage>
         <openapi-generator-plugin-modelPackage>ai.chatboot.model</openapi-generator-plugin-modelPackage>
         <openapi-generator-plugin-packageName>ai.chatboot</openapi-generator-plugin-packageName>
@@ -35,6 +27,7 @@
         <openapi-generator-plugin-apiNameSuffix>API</openapi-generator-plugin-apiNameSuffix>
         <!-- Formatter -->
         <formatter-plugin-version>2.23.0</formatter-plugin-version>
+        <impsort-plugin-version>1.9.0</impsort-plugin-version>
         <!-- Project -->
         <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -43,6 +36,11 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.openapitools</groupId>
+                    <artifactId>openapi-generator-maven-plugin</artifactId>
+                    <version>${openapi-generator-plugin-version}</version>
+                </plugin>
                 <plugin>
                     <groupId>net.revelc.code.formatter</groupId>
                     <artifactId>formatter-maven-plugin</artifactId>
@@ -55,7 +53,15 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <configFile>${project.basedir}/../eclipse-java-google-style.xml</configFile>
+                        <directories>
+                            <directory>${generatedSourceFolder}/java/jakarta-api</directory>
+                            <directory>${generatedSourceFolder}/java/jakarta-model</directory>
+                            <directory>${generatedSourceFolder}/java/jaxrs-api</directory>
+                            <directory>${generatedSourceFolder}/java/jaxrs-model</directory>
+                            <directory>${generatedSourceFolder}/java/quarkus-api</directory>
+                            <directory>${generatedSourceFolder}/java/quarkus-model</directory>
+                        </directories>
+                        <configFile>${project.basedir}/generated-sources/java/eclipse-java-google-style.xml</configFile>
                         <compilerCompliance>11</compilerCompliance>
                         <compilerSource>11</compilerSource>
                         <compilerTargetPlatform>11</compilerTargetPlatform>
@@ -67,7 +73,7 @@
                 <plugin>
                     <groupId>net.revelc.code</groupId>
                     <artifactId>impsort-maven-plugin</artifactId>
-                    <version>1.9.0</version>
+                    <version>${impsort-plugin-version}</version>
                     <configuration>
                         <groups>java.,javax.,org.,com.</groups>
                         <staticGroups>java,*</staticGroups>
@@ -80,11 +86,27 @@
                             </goals>
                         </execution>
                     </executions>
-                </plugin>            </plugins>
+                </plugin>
+            </plugins>
         </pluginManagement>
     </build>
 
     <profiles>
+        <profile>
+            <id>format-code</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>net.revelc.code.formatter</groupId>
+                        <artifactId>formatter-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>net.revelc.code</groupId>
+                        <artifactId>impsort-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile>
             <id>generate-code</id>
             <build>
@@ -92,7 +114,6 @@
                     <plugin>
                         <groupId>org.openapitools</groupId>
                         <artifactId>openapi-generator-maven-plugin</artifactId>
-                        <version>${openapi-generator-plugin-version}</version>
                         <executions>
                             <execution>
                                 <!-- JAXRS API -->
@@ -103,7 +124,7 @@
 
                                 <configuration>
                                     <generatorName>jaxrs-spec</generatorName>
-                                    <output>jaxrs-api</output>
+                                    <output>${generatedSourceFolder}/java/jaxrs-api</output>
                                     <generateApis>true</generateApis>
                                     <generateModels>false</generateModels>
 
@@ -135,7 +156,7 @@
                                 </goals>
                                 <configuration>
                                     <generatorName>jaxrs-spec</generatorName>
-                                    <output>jaxrs-model</output>
+                                    <output>${generatedSourceFolder}/java/jaxrs-model</output>
                                     <generateApis>false</generateApis>
                                     <generateModels>true</generateModels>
 
@@ -168,7 +189,7 @@
 
                                 <configuration>
                                     <generatorName>jaxrs-spec</generatorName>
-                                    <output>jakarta-api</output>
+                                    <output>${generatedSourceFolder}/java/jakarta-api</output>
                                     <generateApis>true</generateApis>
                                     <generateModels>false</generateModels>
 
@@ -200,7 +221,7 @@
                                 </goals>
                                 <configuration>
                                     <generatorName>jaxrs-spec</generatorName>
-                                    <output>jakarta-model</output>
+                                    <output>${generatedSourceFolder}/java/jakarta-model</output>
                                     <generateApis>false</generateApis>
                                     <generateModels>true</generateModels>
 
@@ -233,7 +254,7 @@
 
                                 <configuration>
                                     <generatorName>jaxrs-spec</generatorName>
-                                    <output>quarkus-api</output>
+                                    <output>${generatedSourceFolder}/java/quarkus-api</output>
                                     <generateApis>true</generateApis>
                                     <generateModels>false</generateModels>
 
@@ -267,7 +288,7 @@
                                 </goals>
                                 <configuration>
                                     <generatorName>jaxrs-spec</generatorName>
-                                    <output>quarkus-model</output>
+                                    <output>${generatedSourceFolder}/java/quarkus-model</output>
                                     <generateApis>false</generateApis>
                                     <generateModels>true</generateModels>
 
