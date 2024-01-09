@@ -7,19 +7,25 @@ The directory structure is as follows:
 .
 ├── LICENSE
 ├── README.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
 ├── java                     # The generated Java SDK
-│   ├── java-api             # The Java REST API
-│   └── java-model           # The Java APIs
+│   ├── jakarta-api          # The Jakarta EE REST API
+│   ├── jakarta-model        # The Jakarta EE Model
+│   ├── jaxrs-api
+│   └── jaxrs-model
 ├── javascript
 │   ├── javascript-api
 │   └── javascript-model
-├── jaxrs-spec
-│   ├── jaxrs-spec-api
-│   └── jaxrs-spec-model
 ├── python
 │   ├── python-api
 │   └── python-model
-└── openapi.yml              # The ChatBootAI OpenAPI Contract
+└── openapi                  
+    ├── openapi.yml          # The ChatBootAI OpenAPI Contract
+    └── generated-sources    # The temporary generated sources
+        ├── java
+        ├── javascript
+        └── python
 ```
 
 # The ChatBootAI OpenAPI Contract
