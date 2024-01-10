@@ -314,6 +314,114 @@
                                     </configOptions>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <!-- TYPESCRIPT ANGULAR MODEL -->
+                                <id>typescript-angular</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <generatorName>typescript-angular</generatorName>
+                                    <output>${generatedSourceFolder}/typescript/typescript-angular</output>
+                                    <generateApis>true</generateApis>
+                                    <generateModels>true</generateModels>
+
+                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
+                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <inlineSchemaNameMappings>chatRequest_messages_inner=chatRequestMessage,chatResponse_choices_inner=chatResponseChoice</inlineSchemaNameMappings>
+                                    <configOptions>
+                                        <sourceFolder>src/app</sourceFolder>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <!-- TYPESCRIPT NODE MODEL -->
+                                <id>typescript-node</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <generatorName>typescript-node</generatorName>
+                                    <output>${generatedSourceFolder}/typescript/typescript-node</output>
+                                    <generateApis>true</generateApis>
+                                    <generateModels>true</generateModels>
+
+                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
+                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <inlineSchemaNameMappings>chatRequest_messages_inner=chatRequestMessage,chatResponse_choices_inner=chatResponseChoice</inlineSchemaNameMappings>
+                                    <configOptions>
+                                        <sourceFolder>src/app</sourceFolder>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <!-- TYPESCRIPT NODE MODEL -->
+                                <id>typescript-rxjs</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <generatorName>typescript-rxjs</generatorName>
+                                    <output>${generatedSourceFolder}/typescript/typescript-rxjs</output>
+                                    <generateApis>true</generateApis>
+                                    <generateModels>true</generateModels>
+
+                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
+                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <inlineSchemaNameMappings>chatRequest_messages_inner=chatRequestMessage,chatResponse_choices_inner=chatResponseChoice</inlineSchemaNameMappings>
+                                    <configOptions>
+                                        <sourceFolder>src/app</sourceFolder>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <!-- JAVASCRIPT MODEL -->
+                                <id>javascript</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <generatorName>javascript</generatorName>
+                                    <output>${generatedSourceFolder}/javascript/javascript</output>
+                                    <generateApis>true</generateApis>
+                                    <generateModels>true</generateModels>
+
+                                    <verbose>${openapi-generator-plugin-verbose}</verbose>
+                                    <configHelp>${openapi-generator-plugin-configHelp}</configHelp>
+                                    <dryRun>${openapi-generator-plugin-dryRun}</dryRun>
+                                    <inputSpec>${openapi-generator-plugin-inputSpec}</inputSpec>
+                                    <apiPackage>${openapi-generator-plugin-apiPackage}</apiPackage>
+                                    <modelPackage>${openapi-generator-plugin-modelPackage}</modelPackage>
+                                    <packageName>${openapi-generator-plugin-packageName}</packageName>
+                                    <apiNameSuffix>${openapi-generator-plugin-apiNameSuffix}</apiNameSuffix>
+                                    <skipOperationExample>${openapi-generator-plugin-skipOperationExample}</skipOperationExample>
+                                    <inlineSchemaNameMappings>chatRequest_messages_inner=chatRequestMessage,chatResponse_choices_inner=chatResponseChoice</inlineSchemaNameMappings>
+                                    <configOptions>
+                                        <sourceFolder>src/app</sourceFolder>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
                         </executions>
                     </plugin>
                 </plugins>

@@ -1,0 +1,15 @@
+.gitignore
+.openapi-generator-ignore
+ai/chatboot/api/ChatAPI.ts
+ai/chatboot/api/index.ts
+ai/chatboot/model/ChatError.ts
+ai/chatboot/model/ChatRequest.ts
+ai/chatboot/model/ChatRequestMessage.ts
+ai/chatboot/model/ChatResponse.ts
+ai/chatboot/model/ChatResponseChoice.ts
+ai/chatboot/model/ChatResponseMessage.ts
+ai/chatboot/model/index.ts
+index.ts
+runtime.ts
+servers.ts
+tsconfig.json
