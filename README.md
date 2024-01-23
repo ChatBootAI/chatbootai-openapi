@@ -9,9 +9,9 @@ The directory structure is as follows:
 ├── README.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
-├── java                     # The generated Java SDK
-│   ├── jakarta-api          # The Jakarta EE REST API
-│   ├── jakarta-model        # The Jakarta EE Model
+├── java                        # The generated Java SDK
+│   ├── jakarta-api             # The Jakarta EE REST API
+│   ├── jakarta-model           # The Jakarta EE Model
 │   ├── jaxrs-api
 │   └── jaxrs-model
 ├── javascript
@@ -21,8 +21,8 @@ The directory structure is as follows:
 │   ├── python-api
 │   └── python-model
 └── openapi                  
-    ├── openapi.yml          # The ChatBootAI OpenAPI Contract
-    └── generated-sources    # The temporary generated sources
+    ├── openapi-chatbootai.yml  # The ChatBootAI OpenAPI Contract
+    └── generated-sources       # The temporary generated sources
         ├── java
         ├── javascript
         └── python
@@ -32,7 +32,7 @@ The directory structure is as follows:
 
 The ChatBootAI OpenAPI Contract in located under the `openapi.yml` file.
 
-You can also visualize the OpenAPI Contract using the [OpenAPI online editor](https://editor.swagger.io?url=https://raw.githubusercontent.com/ChatBootAI/chatbootai-openapi/main/openapi.yml)
+You can also visualize the OpenAPI Contract using the [OpenAPI online editor](https://editor.swagger.io?url=https://raw.githubusercontent.com/ChatBootAI/chatbootai-openapi/main/openapi/openapi-chatbootai.yml)
 
 # Manually Generating the model and APIs from the ChatBootAI OpenAPI Contract
 
